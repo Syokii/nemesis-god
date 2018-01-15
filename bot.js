@@ -13,6 +13,63 @@ bot.on("guildMemberAdd", function(member) {
     member.addRole(member.guild.roles.find("name", "Friends"));
 });
 
+//HELP
+bot.on("message", async message => {
+    if(message.author.bot) return;
+    if(message.channel.type === "dm") return;
+
+    let messageArray = message.content.split(" ");
+    let command = messageArray[0];
+    let args = messageArray.slice[1];
+
+    if(!command.startsWith(prefix)) return;
+    
+    if(command === `${prefix}help`) {        
+        var embedhelpmember = new Discord.RichEmbed()
+        .setTitle("**List of Help Commands**\n")
+        .addField("help.fun", "Displays fun commands from the bot.") 
+        .addField("help.music", "Displays music commands.") 
+        .addField("help.admin", "Displays commands that can only be used by ADMINS.");
+        message.channel.sendEmbed(embedhelpmember);
+    }
+    
+    if(command === `${prefix}help.fun`) {        
+        var embedhelpfun = new Discord.RichEmbed()
+        .setTitle("**List of Fun Commands**")
+        .setColor("#02e3fc")
+        .addField("Coinflip", "Flips a coin randomly.") 
+        .addField("Roll", "Rolls a dice and you get a random number.") 
+        .addField("Ping", "Tests your ping. (Correct usage: !ping)")
+        .addField("8ball", "Answers to all of your questions! (Correct usage: !8ball <question>)")
+        .addField("Avatar", "Shows your profile picture.") 
+        .addField("Userinfo", "Shows information about yourself.");
+        message.channel.sendEmbed(embedhelpfun);
+    }
+    
+    if(command === `${prefix}help.music`) {        
+
+    }
+    
+    if(command === `${prefix}help.admin`) {     
+        var embedhelpadmin = new Discord.RichEmbed()
+        .setTitle("**List of Admin Commands**\n")
+        .addField("Kick", "Kicks the mentioned user.") 
+        .addField("Ban", "Bans the mentioned user.") 
+        .addField("Admin", "Gives the mentioned user admin role. Must have Admin or higher role to give.") 
+        .addField("Mod", "Gives the mentioned user Mod role. Must have Admin or higher role to give.") 
+        .addField("Trusted", "Gives the mentioned user Trusted role. Must have Admin or higher role to give.") 
+        .addField("Mute", "The mentioned user will not be able to talk in chat.")
+        .addField("Unmute", "The muted user wil be able to talk in chat.")
+        .setColor("#02e3fc")
+        message.channel.sendEmbed(embedhelpadmin);
+    }
+
+//FUN
+
+//MUSIC
+
+//ADMIN
+
 //Commands
 bot.on("message", async message => {
     if(message.author.bot) return;
@@ -36,7 +93,7 @@ bot.on("message", async message => {
 
     if(command === `${prefix}coinflip`) {
         var answers = [
-            "**Heads**", "**Tails**","**Middle Of The Coin**"
+            "**Heads**", "**Tails**"
         ];
         var answers = answers[Math.floor(Math.random() * answers.length)];
         message.channel.send(answers.toString());
@@ -68,23 +125,6 @@ bot.on("message", async message => {
 
     if(command === `${prefix}ping`) {
         message.channel.sendMessage('Pong! Your ping is `' + `${Date.now() - message.createdTimestamp}` + ' ms`');
-    }
-    
-    if(command === `${prefix}help`) {
-        var embedhelpmember = new Discord.RichEmbed()
-        .setTitle("**List of Commands**\n")
-        .addField("Help", "Displays this message (Correct usage: !help)") 
-        .addField("Coinflip", "Flips a coin randomly.") 
-        .addField("Roll", "Rolls a dice and you get a random number.") 
-        .addField("Invite", "Gives the invite link to the server.") 
-        .addField("Ping", "Tests your ping. (Correct usage: !ping)")
-        .addField("8ball", "Answers to all of your questions! (Correct usage: !8ball <question>)")
-        .addField("Avatar", "Shows your profile picture.") 
-        .addField("Userinfo", "Shows information about yourself.") 
-        .addField("Adminhelp", "Gives a list of admin commands.")
-        .setColor("#02e3fc")
-        .setFooter("That's all the commands added so far.");
-        message.channel.sendEmbed(embedhelpmember);
     }
 });
 
@@ -167,21 +207,6 @@ bot.on("message", async message => {
         member.addRole(message.guild.roles.find("name", "Friends"));
         message.reply("The user will now be able to talk in chat.");
         member.guild.channels.find("name", "staff-log").sendMessage(`${member} **has been unmuted by** ${message.author.tag}`);
-    }
-
-    if(command === `${prefix}adminhelp`) {
-        var embedhelpmember = new Discord.RichEmbed()
-        .setTitle("**List of Admin Commands**\n")
-        .addField("Kick", "Kicks the mentioned user.") 
-        .addField("Ban", "Bans the mentioned user.") 
-        .addField("Admin", "Gives the mentioned user admin role. Must have Admin or higher role to give.") 
-        .addField("Mod", "Gives the mentioned user Mod role. Must have Admin or higher role to give.") 
-        .addField("Trusted", "Gives the mentioned user Trusted role. Must have Admin or higher role to give.") 
-        .addField("Mute", "The mentioned user will not be able to talk in chat.")
-        .addField("Unmute", "The muted user wil be able to talk in chat.")
-        .setColor("#02e3fc")
-        .setFooter("That's all the admin commands added so far.");
-        message.channel.sendEmbed(embedhelpmember);
     }
 });
 
