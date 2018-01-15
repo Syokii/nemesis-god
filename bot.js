@@ -63,14 +63,11 @@ bot.on("message", async message => {
         .setColor("#02e3fc")
         message.channel.sendEmbed(embedhelpadmin);
     }
+});
 
-//FUN
+//Music Commands
 
-//MUSIC
-
-//ADMIN
-
-//Commands
+//Fun Commands
 bot.on("message", async message => {
     if(message.author.bot) return;
     if(message.channel.type === "dm") return;
