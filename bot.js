@@ -49,7 +49,7 @@ bot.on("message", async message => {
         .setTitle("**List of Information Commands**\n")
         .setColor("#02e3fc")
         .addField("Ping", "Tests your ping. (Correct usage: !ping)")
-        .addField("Avatar", "Shows your profile picture.") 
+        .addField("Avatar", "Shows the mentioned user's profile picture.") 
         .addField("Userinfo", "Shows information about yourself.");
         message.channel.sendEmbed(embedhelpadmin);
     }
@@ -88,7 +88,7 @@ bot.on("message", async message => {
     }
 
     if(command === `${prefix}roll`) {
-        var roll = Math.floor(Math.random() * 6) + 1;
+        var roll = Math.floor(Math.random() * 100) + 1;
         message.channel.send("You rolled a " + roll);
     }
 
@@ -100,6 +100,14 @@ bot.on("message", async message => {
         message.channel.send(answers.toString());
     }
 
+    if(command === `${prefix}cf`) {
+        var answers = [
+            "**Heads**", "**Tails**"
+        ];
+        var answers = answers[Math.floor(Math.random() * answers.length)];
+        message.channel.send(answers.toString());
+    }
+    
     if(command === `${prefix}8ball`) {
         var answers = [
             "**yes**", "**no**"
