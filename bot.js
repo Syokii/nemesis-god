@@ -29,6 +29,7 @@ bot.on("message", async message => {
         .setTitle("**List of Help Commands**\n")
         .addField("help.fun", "Displays fun commands from the bot.") 
         .addField("help.music", "Displays music commands.") 
+        .addField("help.info", "Displays account information commands.") 
         .addField("help.admin", "Displays commands that can only be used by ADMINS.");
         message.channel.sendEmbed(embedhelpmember);
     }
@@ -39,15 +40,18 @@ bot.on("message", async message => {
         .setColor("#02e3fc")
         .addField("Coinflip", "Flips a coin randomly.") 
         .addField("Roll", "Rolls a dice and you get a random number.") 
-        .addField("Ping", "Tests your ping. (Correct usage: !ping)")
-        .addField("8ball", "Answers to all of your questions! (Correct usage: !8ball <question>)")
-        .addField("Avatar", "Shows your profile picture.") 
-        .addField("Userinfo", "Shows information about yourself.");
+        .addField("8ball", "Answers to all of your questions! (Correct usage: !8ball <question>)");
         message.channel.sendEmbed(embedhelpfun);
     }
     
-    if(command === `${prefix}help.music`) {        
-
+    if(command === `${prefix}help.info`) {     
+        var embedhelpadmin = new Discord.RichEmbed()
+        .setTitle("**List of Information Commands**\n")
+        .setColor("#02e3fc")
+        .addField("Ping", "Tests your ping. (Correct usage: !ping)")
+        .addField("Avatar", "Shows your profile picture.") 
+        .addField("Userinfo", "Shows information about yourself.");
+        message.channel.sendEmbed(embedhelpadmin);
     }
     
     if(command === `${prefix}help.admin`) {     
