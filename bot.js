@@ -28,7 +28,6 @@ bot.on("message", async message => {
         var embedhelpmember = new Discord.RichEmbed()
         .setTitle("**List of Help Commands**\n")
         .addField("help.fun", "Displays fun commands from the bot.") 
-        .addField("help.music", "Displays music commands.") 
         .addField("help.info", "Displays account information commands.") 
         .addField("help.admin", "Displays commands that can only be used by ADMINS.");
         message.channel.sendEmbed(embedhelpmember);
