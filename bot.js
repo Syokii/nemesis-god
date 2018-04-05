@@ -127,6 +127,6 @@ bot.on("message", async message => {
     }
 });
 
-bot.on("ready", () => bot.user.setGame("burn in hell!"));
+bot.on("ready", () => bot.user.setGame("burn in HELL!"));
 
 bot.login("NDMxMjgxNzMwNTQxMDYwMTA3.DaceAg.qknwuDPH1wFxP3qv04cf36UO6Zk");
