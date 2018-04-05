@@ -23,7 +23,6 @@ bot.on("message", async message => {
         .addField("Coinflip", "Flips a coin.") 
         .addField("Roll", "Rolls a dice.") 
         .addField("Ping", "Shows your ping status.")
-        .addField("Roll", "Rolls a dice.") 
         .addField("8ball", "Answers all questions.") 
         .addField("Avatar", "Displays the user profile picture.") 
         .addField("Userinfo", "Shows information about your account.") 
