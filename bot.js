@@ -104,7 +104,7 @@ bot.on("message", async message => {
     if(!command.startsWith(prefix)) return;
 
     if(command === `${prefix}ban`) {
-        if (!message.member.permissions.has('ADMINISTRATOR')) return message.reply("Sorry, you don't have permissions to use this!");
+        if (!message.member.permissions.has('SEND_MESSAGES')) return message.reply("Sorry, you don't have permissions to use this!");
         const member = message.mentions.members.first();
         if (!member) return message.reply('Invalid usage, please mention the person in this server!');
         member.ban({
